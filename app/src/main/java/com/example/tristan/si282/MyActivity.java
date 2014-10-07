@@ -43,7 +43,7 @@ public class MyActivity extends ActionBarActivity {
 
 
 
-        String tester="Il fait beau mais pas trop";
+        String tester="Je mange des pommes de terre";
         final String[] phrase=get_mots(tester);
         res="";
 
