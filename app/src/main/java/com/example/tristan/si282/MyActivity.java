@@ -120,6 +120,31 @@ public class MyActivity extends ActionBarActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        if(find.compareTo("")==0 && mot.substring(mot.length()-1,mot.length()).compareTo("s")==0)
+        {
+            String mot2=mot.substring(0,mot.length()-1);
+            try {
+                enigme = test.getJSONArray("liste");
+
+                int i = 0;
+                while (find.compareTo("") == 0 && i < enigme.length()) {
+                    JSONObject ret = enigme.getJSONObject(i);
+
+                    if (ret.getString("mot").compareTo(mot2) == 0)
+                    {
+                        find=ret.getJSONArray("synonyme").getString(0);
+                    }
+
+                    i++;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            if(find.compareTo("")!=0) find = find + mot.substring(mot.length()-1,mot.length());
+        }
+
         return find;
     }
 /*
